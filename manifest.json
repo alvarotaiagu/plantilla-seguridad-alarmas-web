@@ -1,0 +1,15 @@
+{
+  "name": "ALDRABA Seguridad · Alarmas (demostración)",
+  "short_name": "ALDRABA",
+  "description": "Plantilla de demostración de una empresa de alarmas ficticia, construida alrededor de la secuencia de un salto de alarma.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07080C",
+  "theme_color": "#07080C",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/og.png", "sizes": "1200x630", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>og ALDRABA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Sora:wght@400;600&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:630px;background:#07080C;color:#EAEEF7;font-family:Sora,sans-serif;
+       overflow:hidden;position:relative}
+  .malla{position:absolute;inset:0;
+    background-image:linear-gradient(#1F2534 1px,transparent 1px),linear-gradient(90deg,#1F2534 1px,transparent 1px);
+    background-size:60px 60px;opacity:.5}
+  .caja{position:absolute;inset:0;padding:60px 70px;display:flex;flex-direction:column;justify-content:space-between}
+  .alto{display:flex;align-items:center;gap:18px;font-family:'Space Mono',monospace;
+        font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:#A2AABE}
+  .alto b{background:#3D5AFE;color:#EAEEF7;padding:5px 12px;letter-spacing:.14em}
+  h1{font-family:Khand,sans-serif;font-weight:700;font-size:96px;line-height:.92;letter-spacing:0;max-width:16ch}
+  h1 em{font-style:normal;color:#6E82FF}
+  .bajo{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+  .bajo p{font-family:'Space Mono',monospace;font-size:16px;color:#A2AABE;line-height:1.6;max-width:46ch}
+  .sello{font-family:'Space Mono',monospace;font-size:13px;color:#07080C;background:#A2AABE;
+         padding:6px 12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  /* el carril de segundos, a la derecha */
+  .carril{position:absolute;right:56px;top:96px;width:300px;height:400px;display:flex;
+          flex-direction:column;gap:12px}
+  .tic{display:flex;align-items:center;gap:14px}
+  .tic span{font-family:'Space Mono',monospace;font-size:14px;color:#A2AABE;width:52px}
+  .tic i{display:block;height:14px;background:#131722;border-left:3px solid #39425A;flex:1}
+  .tic.on i{background:#1B2A8A;border-left-color:#3D5AFE}
+  .tic.rama i{background:#0D1016;border-left-color:#6E82FF}
+  .tic.rama span{color:#6E82FF}
+</style>
+</head>
+<body>
+  <div class="malla"></div>
+
+  <div class="carril">
+    <div class="tic on"><span>00:00</span><i></i></div>
+    <div class="tic on"><span>00:03</span><i></i></div>
+    <div class="tic rama"><span>00:12</span><i></i></div>
+    <div class="tic on"><span>00:30</span><i></i></div>
+    <div class="tic on"><span>00:45</span><i></i></div>
+    <div class="tic on"><span>01:10</span><i></i></div>
+    <div class="tic on"><span>01:35</span><i></i></div>
+    <div class="tic"><span>02:00</span><i></i></div>
+  </div>
+
+  <div class="caja">
+    <div class="alto"><b>ALDRABA</b> <span>Alarmas y seguridad · Ferrol</span></div>
+    <h1>Lo que contratas<br>no es una sirena.<br><em>Es lo que pasa<br>después.</em></h1>
+    <div class="bajo">
+      <p>La secuencia entera, segundo a segundo.<br>Sin una sola estadística de robos.</p>
+      <span class="sello">Sitio de demostración · negocio ficticio</span>
+    </div>
+  </div>
+</body>
+</html>

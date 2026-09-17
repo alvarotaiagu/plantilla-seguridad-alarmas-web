@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="ALDRABA">
+  <title>ALDRABA</title>
+  <rect x="2" y="2" width="44" height="44" rx="4" fill="#0D1016" stroke="#3D5AFE" stroke-width="2"/>
+  <!-- la aldraba: argolla colgando de su bocallave -->
+  <circle cx="24" cy="27" r="11" fill="none" stroke="#EAEEF7" stroke-width="3"/>
+  <rect x="18" y="9" width="12" height="9" rx="2" fill="#3D5AFE"/>
+  <path d="M24 18v3" stroke="#EAEEF7" stroke-width="3" stroke-linecap="round"/>
+  <!-- la señal que sale al golpear -->
+  <path d="M8 27a16 16 0 0 1 4-10" fill="none" stroke="#6E82FF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M40 27a16 16 0 0 0-4-10" fill="none" stroke="#6E82FF" stroke-width="2" stroke-linecap="round"/>
+</svg>

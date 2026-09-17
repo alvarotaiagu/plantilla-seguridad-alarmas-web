@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  SITIO DE DEMOSTRACIÓN. ALDRABA Seguridad es una empresa FICTICIA. Nombre,
+  dirección, teléfono, horarios, planes, precios y personas son datos de
+  muestra inventados para enseñar la plantilla. No corresponden a ninguna
+  empresa real ni a ninguna instalación real.
+  En esta página no hay ni una estadística de robos: no se inventan cifras de
+  delincuencia, y no se vende con miedo. Ver README.md.
+  ============================================================================
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALDRABA · Alarmas y seguridad en Ferrol (demo)</title>
+<meta name="description" content="Plantilla de demostración de una empresa de alarmas ficticia: la secuencia de un salto de alarma paso a paso, falsas alarmas, límites legales y privacidad de las cámaras. Todos los datos son de muestra.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#07080C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ALDRABA · Alarmas y seguridad (sitio de demostración)">
+<meta property="og:description" content="Negocio ficticio. Lo que contratas no es una sirena: es lo que pasa en los dos minutos siguientes.">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Sora:wght@400;600&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ALDRABA Seguridad",
+  "description": "Empresa de instalación y mantenimiento de alarmas ficticia, usada como plantilla de demostración.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rúa das Mareas 21, baixo",
+    "addressLocality": "Ferrol",
+    "addressRegion": "A Coruña",
+    "postalCode": "15401",
+    "addressCountry": "ES"
+  },
+  "telephone": "+34981000000",
+  "email": "hola@aldraba.example",
+  "priceRange": "€€",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="salto" href="#contenido">Saltar al contenido</a>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-punto"></span><span class="cursor-texto" id="cursor-texto"></span></div>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="#inicio" aria-label="ALDRABA Seguridad, inicio">
+    <img src="assets/logo.svg" width="48" height="48" alt="" class="marca-mark">
+    <span class="marca-texto">ALDRABA<em>alarmas y seguridad · Ferrol</em></span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="Principal">
+    <ul class="nav-lista">
+      <li><a href="#secuencia">La secuencia</a></li>
+      <li><a href="#equipo">Qué se instala</a></li>
+      <li><a href="#falsas">Falsas alarmas</a></li>
+      <li><a href="#limites">Límites</a></li>
+      <li><a href="#camaras">Cámaras</a></li>
+      <li><a href="#planes">Planes</a></li>
+    </ul>
+    <a class="boton boton--azul nav-cta" href="#visita" data-iman>Pedir visita</a>
+  </nav>
+
+  <button class="hamburguesa" id="hamburguesa" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="contenido">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="inicio">
+    <div class="hero-texto">
+      <p class="sobretitulo" data-aparecer>Alarmas y seguridad · Ferrol · A Coruña</p>
+      <h1 class="titular titular--hero" data-revelar>Lo que contratas no es una sirena: es lo que pasa en los dos minutos siguientes</h1>
+      <p class="parrafo parrafo--grande" data-aparecer>Una sirena la compra cualquiera. Lo que cuesta montar,
+        y lo que casi nadie te enseña antes de firmar, es la secuencia: quién recibe la señal, quién la
+        verifica, a quién llama, en qué orden y qué queda por escrito. Aquí está entera, segundo a segundo,
+        incluida la parte en la que resulta que no era nada.</p>
+      <div class="hero-acciones" data-aparecer>
+        <a class="boton boton--azul" href="#secuencia" data-iman>Ver la secuencia</a>
+        <a class="boton boton--linea" href="#limites" data-iman>Lo que no podemos hacer</a>
+      </div>
+      <p class="hero-nota" data-aparecer>En esta web no vas a encontrar ni una estadística de robos.
+        No vendemos con miedo, y una cifra inventada con pinta de dato sería exactamente eso.</p>
+    </div>
+
+    <figure class="placa" aria-hidden="true">
+      <svg viewBox="0 0 300 300" class="placa-svg">
+        <rect x="18" y="18" width="264" height="264" rx="8" fill="#0D1016" stroke="#1F2534" stroke-width="2"/>
+        <g stroke="#131722" stroke-width="1">
+          <path d="M18 84h264M18 150h264M18 216h264M84 18v264M150 18v264M216 18v264"/>
+        </g>
+        <circle cx="150" cy="150" r="86" fill="none" stroke="#39425A" stroke-width="2"/>
+        <circle cx="150" cy="150" r="62" fill="none" stroke="#1F2534" stroke-width="1"/>
+        <circle class="placa-onda" cx="150" cy="150" r="30" fill="none" stroke="#3D5AFE" stroke-width="2"/>
+        <circle cx="150" cy="150" r="9" fill="#3D5AFE"/>
+        <path class="placa-aguja" d="M150 150 L150 64" stroke="#6E82FF" stroke-width="3" stroke-linecap="round"/>
+        <text x="150" y="272" text-anchor="middle" class="placa-txt">SEÑAL RECIBIDA · 00:00</text>
+      </svg>
+      <figcaption>El sistema no grita: manda una señal y espera a que alguien la mire.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ================= FRANJA ================= -->
+  <section class="franja" aria-label="Servicios">
+    <div class="franja-pista" id="franja-pista">
+      <div class="franja-grupo">
+        <span>Instalación</span><i aria-hidden="true"></i><span>Mantenimiento</span><i aria-hidden="true"></i><span>Verificación</span><i aria-hidden="true"></i><span>Revisión anual</span><i aria-hidden="true"></i><span>Avería en 24 h</span><i aria-hidden="true"></i>
+      </div>
+      <div class="franja-grupo" aria-hidden="true">
+        <span>Instalación</span><i></i><span>Mantenimiento</span><i></i><span>Verificación</span><i></i><span>Revisión anual</span><i></i><span>Avería en 24 h</span><i></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 01 LA SECUENCIA (protagonista) ================= -->
+  <section class="secuencia" id="secuencia">
+    <div class="secuencia-cab">
+      <p class="rotulo"><span>01</span> La secuencia</p>
+      <h2 class="titular" data-revelar>Dos minutos, paso a paso</h2>
+      <p class="parrafo">Esto es lo que ocurre desde que un sensor manda una señal. No es una recreación de
+        un robo: es el procedimiento, que es lo mismo se haya colado alguien o se haya movido una cortina.
+        Baja y avanza el reloj.</p>
+    </div>
+
+    <div class="secuencia-escena" id="secuencia-escena">
+      <div class="secuencia-marcador">
+        <p class="secuencia-reloj" id="secuencia-reloj">00:00</p>
+        <p class="secuencia-etapa" id="secuencia-etapa" role="status">Sistema armado. No pasa nada.</p>
+      </div>
+
+      <div class="secuencia-carril" id="secuencia-carril" data-scroll-teclado role="group"
+           aria-label="Secuencia de un salto de alarma, segundo a segundo; se recorre en horizontal">
+        <ol class="secuencia-lista" id="secuencia-lista">
+          <li class="paso" data-seg="0">
+            <p class="paso-seg">00:00</p>
+            <h3>Un sensor manda una señal</h3>
+            <p>Un contacto se abre, un detector ve movimiento. Todavía no hay alarma: hay un aviso dentro
+              del panel, y el panel es el que decide si esto va a alguna parte.</p>
+          </li>
+          <li class="paso" data-seg="3">
+            <p class="paso-seg">00:03</p>
+            <h3>El panel abre la ventana de entrada</h3>
+            <p>Si la puerta es una vía de entrada normal, el sistema te da margen para teclear el código.
+              Ese margen lo decides tú al instalar, y es el que evita la mayoría de los sustos.</p>
+          </li>
+          <li class="paso paso--rama" data-seg="12">
+            <p class="paso-seg">00:12</p>
+            <h3>Aquí termina la mayoría de las secuencias</h3>
+            <p>Eras tú, era el gato, era la ventana que quedó entornada. Se teclea el código, el panel
+              desarma y no sale nada hacia fuera. No es un fallo del sistema: es el sistema haciendo
+              exactamente lo que tiene que hacer.</p>
+            <p class="paso-nota">El resto de los pasos solo ocurren si nadie desarma.</p>
+          </li>
+          <li class="paso" data-seg="30">
+            <p class="paso-seg">00:30</p>
+            <h3>Sirena y aviso a la central</h3>
+            <p>Suena la sirena y sale la señal hacia la central receptora de alarmas. La central es una
+              empresa autorizada, con su propio registro; no es un teléfono nuestro.</p>
+          </li>
+          <li class="paso" data-seg="45">
+            <p class="paso-seg">00:45</p>
+            <h3>Verificación</h3>
+            <p>Un operador comprueba la señal con lo que el sistema haya captado: audio, imagen o varios
+              sensores dando la misma lectura. Sin verificación no se avisa a la policía, y eso no es una
+              política nuestra: es lo que exige la normativa de seguridad privada.</p>
+          </li>
+          <li class="paso" data-seg="70">
+            <p class="paso-seg">01:10</p>
+            <h3>Te llaman a ti</h3>
+            <p>Primero al titular y después a la lista de contactos que hayas dejado, en el orden que
+              hayas puesto. Esa lista la cambias cuando quieras, sin coste y sin llamar dos veces.</p>
+          </li>
+          <li class="paso" data-seg="95">
+            <p class="paso-seg">01:35</p>
+            <h3>Aviso a 091 / 112, solo si está verificada</h3>
+            <p>Si la señal se verificó, la central da el aviso. Si no se pudo verificar, no se avisa y te
+              lo dicen así, con esas palabras. Prometer que «viene la policía siempre» es prometer algo
+              que no depende de nosotros.</p>
+          </li>
+          <li class="paso paso--final" data-seg="120">
+            <p class="paso-seg">02:00</p>
+            <h3>Queda un registro</h3>
+            <p>Con la hora de cada paso, quién lo hizo y qué se decidió. Lo puedes pedir siempre, también
+              cuando no te guste lo que pone. Sin registro, todo lo anterior es palabra.</p>
+          </li>
+        </ol>
+      </div>
+
+      <p class="secuencia-aviso">Los tiempos son los de una configuración de ejemplo escrita para esta
+        demostración. En una instalación real los decides tú con el instalador, quedan por escrito en el
+        contrato y no son los mismos en una casa que en un local.</p>
+    </div>
+  </section>
+
+  <!-- ================= 02 QUÉ SE INSTALA ================= -->
+  <section class="equipo" id="equipo">
+    <div class="equipo-cab">
+      <p class="rotulo"><span>02</span> Qué se instala</p>
+      <h2 class="titular" data-revelar>Seis piezas, y ninguna mágica</h2>
+      <p class="parrafo">Un sistema de alarma es poca cosa y conviene que lo sea: cuantos menos aparatos,
+        menos cosas que fallen y menos señales que no significan nada. Esto es todo lo que hay.</p>
+    </div>
+
+    <ul class="rejilla-equipo">
+      <li class="pieza" data-aparecer>
+        <p class="pieza-clave">01</p>
+        <h3>Panel de control</h3>
+        <p>El que decide. Tiene batería para seguir funcionando si se va la luz y una segunda vía de
+          comunicación para cuando falla la primera.</p>
+      </li>
+      <li class="pieza" data-aparecer>
+        <p class="pieza-clave">02</p>
+        <h3>Contactos magnéticos</h3>
+        <p>Dos piezas en una puerta o ventana que notan cuando se separan. Son los sensores más tontos y
+          los que menos falsas alarmas dan, por ese mismo motivo.</p>
+      </li>
+      <li class="pieza" data-aparecer>
+        <p class="pieza-clave">03</p>
+        <h3>Detectores de movimiento</h3>
+        <p>Miran cambios de calor en un ángulo. Hay versiones que ignoran a un animal por debajo de cierto
+          peso, y hay que colocarlos lejos de radiadores y de corrientes de aire.</p>
+      </li>
+      <li class="pieza" data-aparecer>
+        <p class="pieza-clave">04</p>
+        <h3>Sirena</h3>
+        <p>Interior para que se oiga dentro, exterior con su propia batería. No espanta a nadie por sí
+          sola: sirve para avisar y para que la secuencia empiece a verse desde fuera.</p>
+      </li>
+      <li class="pieza" data-aparecer>
+        <p class="pieza-clave">05</p>
+        <h3>Verificación por imagen o audio</h3>
+        <p>Es la pieza que convierte una señal en algo que un operador puede comprobar. Sin ella, la
+          secuencia se queda a medias en el paso 00:45.</p>
+      </li>
+      <li class="pieza" data-aparecer>
+        <p class="pieza-clave">06</p>
+        <h3>Mando y teclado</h3>
+        <p>Con qué armas y desarmas. Si el sistema es incómodo, la gente deja de armarlo, y un sistema
+          desarmado es un adorno caro.</p>
+      </li>
+    </ul>
+
+    <p class="equipo-nota">Lo que no verás aquí: paquetes con veinte sensores «por el mismo precio». Cada
+      sensor de más es una señal de más que alguien tiene que interpretar a las cuatro de la mañana.</p>
+  </section>
+
+  <!-- ================= 03 FALSAS ALARMAS ================= -->
+  <section class="falsas" id="falsas">
+    <div class="falsas-cab">
+      <p class="rotulo"><span>03</span> Falsas alarmas</p>
+      <h2 class="titular" data-revelar>La parte que nadie pone en su web</h2>
+      <p class="parrafo">La mayoría de las veces que salta una alarma no ha entrado nadie. Es el asunto
+        cotidiano de este oficio, y es el que decide si dentro de un año sigues armando el sistema o lo
+        tienes apagado por pesado. Estas son las cuatro causas que más vemos y qué hacemos con cada una.</p>
+      <p class="parrafo parrafo--nota">No vas a ver aquí un porcentaje. Los que circulan por el sector
+        cambian según quién los publique, y el nuestro sería inventado: esta empresa no existe.</p>
+    </div>
+
+    <ol class="pila" id="pila-falsas">
+      <li class="pila-item">
+        <article class="tarjeta">
+          <p class="tarjeta-num">01</p>
+          <h3>Un animal dentro de casa</h3>
+          <p>Es la causa número uno y la más fácil de resolver: detectores con inmunidad a animales,
+            colocados a la altura correcta y apuntando donde el animal no llega. Si tienes un perro
+            grande, hay zonas que sencillamente no se cubren con movimiento.</p>
+          <p class="tarjeta-pie">Qué hacemos: se decide en la visita, antes de presupuestar, y se anota en
+            el plano de la instalación.</p>
+        </article>
+      </li>
+      <li class="pila-item">
+        <article class="tarjeta">
+          <p class="tarjeta-num">02</p>
+          <h3>Una puerta o una ventana mal cerradas</h3>
+          <p>El sistema avisa al armar de que hay una zona abierta. Si te has acostumbrado a saltártelo,
+            el aviso ha dejado de servir. Preferimos que el sistema no te deje armar con una zona abierta
+            a que te acostumbres a ignorarlo.</p>
+          <p class="tarjeta-pie">Qué hacemos: se configura contigo cómo se comporta al armar, y se puede
+            cambiar cuando quieras.</p>
+        </article>
+      </li>
+      <li class="pila-item">
+        <article class="tarjeta">
+          <p class="tarjeta-num">03</p>
+          <h3>Corrientes de aire, calefacción, sol directo</h3>
+          <p>Un detector de movimiento mide cambios de temperatura. Un radiador que arranca, una cortina
+            que se mueve con el aire acondicionado o el sol dando de lleno sobre una pared pueden leerse
+            como movimiento. Es un problema de colocación, no del aparato.</p>
+          <p class="tarjeta-pie">Qué hacemos: se recoloca sin coste dentro del primer año, tantas veces
+            como haga falta.</p>
+        </article>
+      </li>
+      <li class="pila-item">
+        <article class="tarjeta">
+          <p class="tarjeta-num">04</p>
+          <h3>Personas que entran y no saben el código</h3>
+          <p>La persona que limpia, quien viene a regar las plantas, un familiar. No hay que darle tu
+            código a nadie: se crean códigos distintos, con su horario, y se ve en el registro quién
+            desarmó y cuándo.</p>
+          <p class="tarjeta-pie">Qué hacemos: se crean en cinco minutos y se borran igual de rápido.</p>
+        </article>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ================= 04 LÍMITES ================= -->
+  <section class="limites" id="limites">
+    <div class="limites-cab">
+      <p class="rotulo"><span>04</span> Límites</p>
+      <h2 class="titular" data-revelar>Lo que una empresa de alarmas no puede hacer</h2>
+      <p class="parrafo">Esto debería estar en la primera página de todas las webs del sector y no está en
+        casi ninguna. Son límites legales, no una forma de curarnos en salud: la seguridad privada en
+        España está regulada y lo que sigue no es opinable.</p>
+    </div>
+
+    <ul class="rejilla-limites">
+      <li class="limite" data-aparecer>
+        <h3>No vamos a detener a nadie</h3>
+        <p>Ni nosotros ni la central. Detener no está entre las funciones de una empresa de seguridad
+          electrónica, y quien te insinúe lo contrario te está vendiendo humo.</p>
+      </li>
+      <li class="limite" data-aparecer>
+        <h3>No podemos garantizar que venga la policía</h3>
+        <p>Lo que podemos garantizar es que la señal se verifica y que, si se verifica, se da el aviso.
+          Lo que pase después no lo decidimos nosotros, y prometerlo sería mentir.</p>
+      </li>
+      <li class="limite" data-aparecer>
+        <h3>No damos avisos sin verificar</h3>
+        <p>No es pereza: la normativa obliga a verificar antes de movilizar a las fuerzas de seguridad,
+          precisamente porque la mayoría de las señales no son nada.</p>
+      </li>
+      <li class="limite" data-aparecer>
+        <h3>Una alarma no impide que entren</h3>
+        <p>Reduce el tiempo que alguien está dispuesto a quedarse y deja constancia de lo que pasó. Eso es
+          mucho, y es distinto de ser una barrera.</p>
+      </li>
+      <li class="limite" data-aparecer>
+        <h3>No miramos tus cámaras «por si acaso»</h3>
+        <p>Las imágenes se miran cuando hay una señal que verificar, y queda registrado quién las miró.
+          Fuera de eso, nadie se asoma a tu casa.</p>
+      </li>
+      <li class="limite" data-aparecer>
+        <h3>No trabajamos con permanencias largas</h3>
+        <p>Si el servicio no se sostiene solo, atarte dos años tampoco lo va a arreglar. En los planes de
+          abajo lo verás: se avisa con un mes.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= 05 CÁMARAS Y PRIVACIDAD ================= -->
+  <section class="camaras" id="camaras">
+    <div class="camaras-cab">
+      <p class="rotulo"><span>05</span> Cámaras</p>
+      <h2 class="titular" data-revelar>Dónde puede mirar una cámara y dónde no</h2>
+      <p class="parrafo">Instalar una cámara en tu propia casa no te da derecho a grabar lo que te apetezca.
+        Esta es la parte que más problemas da después, y se resuelve entera el día de la visita, moviendo
+        la cámara treinta centímetros.</p>
+    </div>
+
+    <div class="camaras-rejilla">
+      <figure class="plano">
+        <svg viewBox="0 0 640 420" class="plano-svg" role="img"
+             aria-label="Plano de una vivienda con una cámara en la fachada: su ángulo cubre la entrada y el jardín propios, y se marcan como prohibidos la vía pública y la ventana del vecino.">
+          <rect x="1" y="1" width="638" height="418" rx="4" fill="#0D1016" stroke="#1F2534" stroke-width="2"/>
+          <g stroke="#111520" stroke-width="1">
+            <path d="M0 70h640M0 140h640M0 210h640M0 280h640M0 350h640M80 0v420M160 0v420M240 0v420M320 0v420M400 0v420M480 0v420M560 0v420"/>
+          </g>
+
+          <!-- vía pública -->
+          <rect x="0" y="330" width="640" height="90" fill="#0A0C12"/>
+          <path d="M0 330h640" stroke="#39425A" stroke-width="2"/>
+          <path d="M20 375h60M120 375h60M220 375h60M320 375h60M420 375h60M520 375h60" stroke="#39425A" stroke-width="3"/>
+          <text x="20" y="404" class="plano-txt">VÍA PÚBLICA · NO SE GRABA</text>
+
+          <!-- parcela propia -->
+          <path d="M60 60 H420 V330 H60 Z" fill="none" stroke="#39425A" stroke-width="2" stroke-dasharray="7 6"/>
+          <text x="68" y="52" class="plano-txt">TU PARCELA</text>
+
+          <!-- casa -->
+          <path d="M150 120 H360 V270 H150 Z" fill="#131722" stroke="#A2AABE" stroke-width="2.5"/>
+          <path d="M240 270 v60" stroke="#A2AABE" stroke-width="2"/>
+          <rect x="222" y="262" width="36" height="12" fill="#3D5AFE"/>
+          <text x="164" y="150" class="plano-txt">VIVIENDA</text>
+
+          <!-- cono permitido -->
+          <path class="plano-cono" d="M360 140 L560 250 L560 330 L360 330 Z" fill="#3D5AFE" opacity=".16"/>
+          <path d="M360 140 L560 250" stroke="#3D5AFE" stroke-width="1.5"/>
+          <path d="M360 140 L360 330" stroke="#3D5AFE" stroke-width="1.5"/>
+          <circle cx="360" cy="140" r="7" fill="#3D5AFE"/>
+          <path d="M360 140 l26 12" stroke="#6E82FF" stroke-width="4" stroke-linecap="round"/>
+          <text x="394" y="300" class="plano-txt plano-txt--ok">LO TUYO: ENTRADA Y PARCELA</text>
+
+          <!-- vecino -->
+          <path d="M470 60 H600 V210 H470 Z" fill="#0F131C" stroke="#39425A" stroke-width="2"/>
+          <rect x="492" y="182" width="42" height="14" fill="#39425A"/>
+          <text x="482" y="94" class="plano-txt">CASA DEL VECINO</text>
+          <g class="plano-veto">
+            <circle cx="546" cy="140" r="30" fill="none" stroke="#FF5C5C" stroke-width="3"/>
+            <path d="M525 119 L567 161" stroke="#FF5C5C" stroke-width="3"/>
+          </g>
+          <g class="plano-veto">
+            <circle cx="90" cy="375" r="30" fill="none" stroke="#FF5C5C" stroke-width="3"/>
+            <path d="M69 354 L111 396" stroke="#FF5C5C" stroke-width="3"/>
+          </g>
+        </svg>
+        <figcaption>Plano de ejemplo. La cámara está en la esquina de la fachada y su ángulo se recorta
+          para que no entren ni la calle ni la ventana de al lado.</figcaption>
+      </figure>
+
+      <div class="camaras-reglas">
+        <h3>Las cinco reglas que aplicamos siempre</h3>
+        <ol class="reglas">
+          <li><b>La vía pública no se graba.</b> Ni la acera, ni la calzada, ni el portal de enfrente. Si
+            el encuadre no da, se mueve la cámara o se recorta la zona en el propio equipo.</li>
+          <li><b>La propiedad del vecino tampoco.</b> Su ventana, su jardín, su plaza de garaje. Es el
+            motivo número uno de denuncia entre vecinos, y se evita el día de la instalación.</li>
+          <li><b>Se avisa con cartel.</b> Un cartel visible de zona videovigilada en el acceso, con quién
+            es el responsable y dónde ejercer tus derechos.</li>
+          <li><b>Las imágenes duran poco y las ve poca gente.</b> Se conservan un plazo corto y cada
+            visionado queda registrado, incluidos los nuestros.</li>
+          <li><b>Dentro de casa hay sitios que no se cubren.</b> Dormitorios y baños, nunca. En un local
+            con empleados, tampoco las zonas de descanso ni los vestuarios.</li>
+        </ol>
+        <p class="camaras-nota">Esto es un resumen para entendernos, no un informe jurídico. En una
+          instalación real, el responsable del tratamiento de las imágenes eres tú, y te lo explicamos por
+          escrito antes de montar nada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 PLANES ================= -->
+  <section class="planes" id="planes">
+    <div class="planes-cab">
+      <p class="rotulo"><span>06</span> Planes</p>
+      <h2 class="titular" data-revelar>Precios de muestra, en una tabla</h2>
+      <p class="parrafo">Inventados para esta demostración, y puestos en una tabla en vez de en tres
+        columnas con una destacada, que es la forma habitual de empujarte a la del medio.</p>
+    </div>
+
+    <div class="tabla-caja" data-scroll-teclado role="group" aria-label="Tabla de planes; se recorre en horizontal">
+      <table class="tabla">
+        <caption class="visualmente-oculto">Planes de ejemplo con su cuota mensual, qué incluye cada uno y su permanencia</caption>
+        <thead>
+          <tr><th scope="col">Plan</th><th scope="col">Cuota</th><th scope="col">Qué incluye</th><th scope="col">Permanencia</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Base</th>
+            <td class="tabla-cifra">29 €/mes</td>
+            <td>Panel, cuatro sensores, sirena interior, conexión con central y verificación por audio.</td>
+            <td>Ninguna · aviso de un mes</td>
+          </tr>
+          <tr>
+            <th scope="row">Con imagen</th>
+            <td class="tabla-cifra">39 €/mes</td>
+            <td>Lo anterior más verificación por imagen en dos zonas y sirena exterior con batería.</td>
+            <td>Ninguna · aviso de un mes</td>
+          </tr>
+          <tr>
+            <th scope="row">Local</th>
+            <td class="tabla-cifra">54 €/mes</td>
+            <td>Para negocio: más zonas, códigos por persona con horario y registro de aperturas y cierres.</td>
+            <td>Ninguna · aviso de un mes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="planes-letra">
+      <li><b>La instalación se paga aparte</b>, una sola vez, y se presupuesta después de ver la casa. No
+        damos un precio por teléfono porque no sabemos cuántas puertas tienes.</li>
+      <li><b>El equipo es tuyo</b> desde el primer día. Si te vas, no hay que devolver nada ni pagar por
+        quedártelo.</li>
+      <li><b>La revisión anual está incluida</b> en los tres planes, y se hace presencialmente.</li>
+      <li><b>Sin subidas automáticas.</b> Si cambia la cuota, se avisa con dos meses y puedes irte.</li>
+    </ul>
+
+    <dl class="cifras" id="cifras">
+      <div><dt>años instalando</dt><dd><span class="contador" data-hasta="11">11</span></dd></div>
+      <div><dt>municipios que cubrimos</dt><dd><span class="contador" data-hasta="9">9</span></dd></div>
+      <div><dt>horas de central</dt><dd><span class="contador" data-hasta="24">24</span></dd></div>
+      <div><dt>personas en la empresa</dt><dd><span class="contador" data-hasta="7">7</span></dd></div>
+    </dl>
+    <p class="cifras-nota">Cifras de la empresa ficticia, no del sector. Aquí no hay ningún dato de
+      delincuencia porque no tenemos ninguno que sea nuestro.</p>
+  </section>
+
+  <!-- ================= 07 PREGUNTAS ================= -->
+  <section class="preguntas" id="preguntas">
+    <div class="preguntas-cab">
+      <p class="rotulo"><span>07</span> Preguntas</p>
+      <h2 class="titular" data-revelar>Lo que se pregunta en la cocina</h2>
+    </div>
+
+    <div class="preguntas-lista">
+      <details class="pregunta">
+        <summary>¿Y si se va la luz o cortan el teléfono?</summary>
+        <p>El panel tiene batería para seguir funcionando y una segunda vía de comunicación. Si la
+          principal se cae, la central recibe un aviso de que se ha caído: el silencio también es una
+          señal, y se trata como tal.</p>
+      </details>
+      <details class="pregunta">
+        <summary>¿Puedo instalarla yo y contratar solo la conexión?</summary>
+        <p>La conexión con una central receptora solo puede hacerla una empresa de seguridad autorizada,
+          y la instalación conectada a central también. Un equipo de tienda que solo te avisa al móvil es
+          otra cosa, perfectamente legal, y para algunas casas es suficiente: te lo diremos si es tu caso,
+          aunque no vendamos nada.</p>
+      </details>
+      <details class="pregunta">
+        <summary>¿Cuánto tarda la instalación?</summary>
+        <p>Una vivienda normal, una mañana. Un local, entre uno y dos días. Lo que lleva tiempo no es
+          atornillar: es decidir dónde va cada sensor sin llenarte la casa de falsas alarmas.</p>
+      </details>
+      <details class="pregunta">
+        <summary>¿Me vais a llamar para venderme cosas?</summary>
+        <p>No. Y si alguna vez te llamamos por una oferta, puedes decir que no una sola vez y no volvemos
+          a llamar. El teléfono es para las averías y para las alarmas.</p>
+      </details>
+      <details class="pregunta">
+        <summary>¿Qué pasa si quiero irme?</summary>
+        <p>Avisas con un mes, se da de baja la conexión y el equipo se queda contigo. Te entregamos los
+          códigos de administración para que otra empresa pueda hacerse cargo sin tener que arrancarlo
+          todo.</p>
+      </details>
+      <details class="pregunta">
+        <summary>¿Puedo ver mis cámaras desde el móvil?</summary>
+        <p>Sí, y conviene que sepas qué implica: la aplicación es otra puerta. Se entrega con contraseña
+          propia, con doble factor y con la recomendación de no compartirla en el grupo de la familia.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= 08 VISITA ================= -->
+  <section class="visita" id="visita">
+    <div class="visita-cab">
+      <p class="rotulo"><span>08</span> Visita</p>
+      <h2 class="titular" data-revelar>Primero vemos la casa</h2>
+      <p class="parrafo">La visita no cuesta nada y no obliga a nada. De ella sale un plano con dónde iría
+        cada pieza y un presupuesto cerrado. Si creemos que no necesitas una alarma conectada, te lo
+        decimos allí mismo.</p>
+    </div>
+
+    <div class="visita-rejilla">
+      <form class="formulario" id="formulario" novalidate>
+        <p class="formulario-aviso">Formulario de muestra: no envía nada a ningún servidor.</p>
+        <div class="campo-fila">
+          <div class="campo">
+            <label for="f-nombre">Nombre</label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="f-tel">Teléfono</label>
+            <input id="f-tel" name="telefono" type="tel" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="campo-fila">
+          <div class="campo">
+            <label for="f-tipo">Qué hay que proteger</label>
+            <select id="f-tipo" name="tipo">
+              <option>Piso</option>
+              <option>Casa</option>
+              <option>Local o negocio</option>
+              <option>Nave o almacén</option>
+              <option>Segunda vivienda</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-zona">Municipio</label>
+            <input id="f-zona" name="zona" type="text" placeholder="Ferrol, Narón, Neda…">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f-mensaje">Cuéntanos qué te preocupa</label>
+          <textarea id="f-mensaje" name="mensaje" rows="4"></textarea>
+        </div>
+        <label class="campo-check"><input type="checkbox" id="f-ok" name="ok" required>
+          <span>He leído el <a href="aviso-legal.html">aviso legal</a>.</span></label>
+        <button class="boton boton--azul" type="submit" data-iman>Pedir visita</button>
+        <p class="formulario-respuesta" id="formulario-respuesta" role="status"></p>
+      </form>
+
+      <div class="visita-datos">
+        <dl>
+          <div><dt>Oficina</dt><dd>Rúa das Mareas 21, baixo<br>15401 Ferrol · A Coruña</dd></div>
+          <div><dt>Teléfono</dt><dd><a href="tel:+34981000000">981 00 00 00</a><br><span class="muestra">Número de muestra: no funciona.</span></dd></div>
+          <div><dt>Correo</dt><dd><a href="mailto:hola@aldraba.example">hola@aldraba.example</a></dd></div>
+          <div><dt>Horario de oficina</dt><dd>Lunes a viernes 09:00 – 19:00</dd></div>
+          <div><dt>Avisos de alarma</dt><dd>los atiende la central, 24 h, todos los días</dd></div>
+          <div><dt>Zona</dt><dd>Ferrolterra y Eume</dd></div>
+        </dl>
+
+        <div class="mapa" id="mapa">
+          <button class="boton boton--linea" type="button" id="mapa-boton">Cargar el mapa de Google</button>
+          <p class="mapa-nota">El mapa no se carga hasta que lo pides: así esta página no pone cookies de
+            terceros por su cuenta. La dirección es inventada, así que el mapa muestra la localidad, no
+            una calle concreta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="pie-rejilla">
+    <div class="pie-marca">
+      <img src="assets/logo.svg" width="48" height="48" alt="">
+      <p>ALDRABA<br><span>Alarmas y seguridad · Ferrol</span></p>
+    </div>
+    <div>
+      <h2>Dónde</h2>
+      <p>Rúa das Mareas 21, baixo<br>15401 Ferrol · A Coruña</p>
+    </div>
+    <div>
+      <h2>Contacto</h2>
+      <p><a href="tel:+34981000000">981 00 00 00</a><br><a href="mailto:hola@aldraba.example">hola@aldraba.example</a></p>
+    </div>
+    <div>
+      <h2>Horario</h2>
+      <p>Oficina L–V 09:00 – 19:00<br>Central 24 h</p>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <p><a href="aviso-legal.html">Aviso legal y privacidad</a><br><a href="#inicio">Volver arriba</a></p>
+    </div>
+  </div>
+  <p class="sello">Sitio de demostración. ALDRABA Seguridad es un negocio ficticio; los datos, los planes,
+    los precios y los tiempos de la secuencia son de muestra y no corresponden a ninguna empresa real.
+    <strong>En esta página no hay ninguna estadística de robos: no se inventan cifras de delincuencia.</strong></p>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <p>Esta web solo guarda en tu navegador que ya has visto este aviso. No hay cookies de terceros ni
+    analítica, y el mapa de Google se carga únicamente si pulsas su botón.</p>
+  <div class="cookie-acciones">
+    <button class="boton boton--azul" type="button" id="cookie-ok">De acuerdo</button>
+    <a class="cookie-mas" href="aviso-legal.html">Más información</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
