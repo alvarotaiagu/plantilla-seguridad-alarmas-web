@@ -352,11 +352,65 @@
     ScrollTrigger.refresh();
   }
 
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(arrancar);
-  } else {
-    window.addEventListener("load", arrancar);
+
+  /* --- Cortina de entrada ---------------------------------------------------
+     El gesto sale del concepto; la mecánica es la misma en toda la biblioteca.
+     Se retira SIEMPRE: sin GSAP y con movimiento reducido la hoja de estilos ni
+     la pinta, y aquí abajo hay una red de seguridad por tiempo. */
+  var elCortina = $("#cortina");
+  var cortinaFuera = false;
+
+  function quitarCortina() {
+    if (cortinaFuera) { return; }
+    cortinaFuera = true;
+    if (elCortina) { elCortina.classList.add("esta-fuera"); }
+    if (lenis) { lenis.start(); }
   }
+
+  function cortina(alHero) {
+    if (!elCortina) { alHero(); return; }
+    if (lenis) { lenis.stop(); }
+    try { window.scrollTo(0, 0); } catch (e) {}
+    var elReloj = $("#cortina-reloj");
+    var cuenta = { s: 3 };
+    var tl = gsap.timeline({ onComplete: quitarCortina });
+    tl.to(".cortina-argolla", { strokeDashoffset: 0, duration: .8, ease: "expo.inOut" })
+      .to(".cortina-boca", { opacity: 1, duration: .3, ease: "power2.out" }, "-=.26")
+      /* immediateRender:false o la onda se pinta ya expandida al crear la línea
+         de tiempo, antes de que le toque */
+      .fromTo(".cortina-onda",
+        { attr: { r: 30 }, opacity: .85 },
+        { attr: { r: 70 }, opacity: 0, duration: .85, ease: "power1.out",
+          repeat: 2, immediateRender: false }, "-=.1")
+      .to(cuenta, {
+        s: 0, duration: 1.5, ease: "none",
+        onUpdate: function () {
+          if (elReloj) {
+            elReloj.textContent = "00:0" + Math.max(0, Math.ceil(cuenta.s));
+          }
+        }
+      }, "<")
+      .to(".cortina-marca", { opacity: 1, duration: .4, ease: "power2.out" }, "-=.5")
+      .call(function () { if (elReloj) { elReloj.textContent = "DESARMADO"; } })
+      .add(alHero, "+=.22")
+      .to(".cortina-centro", { opacity: 0, duration: .32, ease: "power2.in" })
+      .to(".cortina-hoja", { yPercent: -102, borderRadius: 0, duration: 1.1, ease: "expo.inOut" }, "-=.14");
+  }
+
+  var yaArranco = false;
+  function arrancarUnaVez() { if (yaArranco) { return; } yaArranco = true; arrancar(); }
+  function abrirLaPagina() { cortina(arrancarUnaVez); }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(abrirLaPagina);
+  } else {
+    window.addEventListener("load", abrirLaPagina);
+  }
+
+  /* Red de seguridad: si las tipografías no resuelven, si una animación se
+     atasca o si algo revienta a mitad, ni la cortina se queda puesta ni el
+     arranque se pierde. */
+  setTimeout(function () { quitarCortina(); arrancarUnaVez(); }, 4600);
 
   if (mqReducido.addEventListener) {
     mqReducido.addEventListener("change", function () { window.location.reload(); });

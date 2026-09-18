@@ -56,6 +56,20 @@
 </head>
 <body>
 
+<!-- Cortina de entrada: la ventana de entrada, contada hacia atrás. -->
+<div class="cortina" id="cortina" aria-hidden="true">
+  <span class="cortina-hoja"></span>
+  <div class="cortina-centro">
+    <svg class="cortina-aldraba" viewBox="0 0 160 150" focusable="false">
+      <circle class="cortina-onda" cx="80" cy="88" r="34" fill="none" stroke="currentColor" stroke-width="2" opacity="0"/>
+      <circle class="cortina-argolla" cx="80" cy="88" r="34" fill="none" stroke="currentColor" stroke-width="6" pathLength="1"/>
+      <rect class="cortina-boca" x="62" y="28" width="36" height="26" rx="5" fill="currentColor" opacity="0"/>
+    </svg>
+    <p class="cortina-reloj" id="cortina-reloj">00:03</p>
+    <p class="cortina-marca">ALDRABA</p>
+  </div>
+</div>
+
 <a class="salto" href="#contenido">Saltar al contenido</a>
 
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-punto"></span><span class="cursor-texto" id="cursor-texto"></span></div>

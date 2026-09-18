@@ -534,3 +534,30 @@ html.has-motion .cursor{display:block;}
   html{scroll-behavior:auto;}
   *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
 }
+
+
+/* ====================== cortina de entrada ================================
+   Obligatoria en todas las plantillas de la biblioteca. Se pinta SOLO cuando
+   hay movimiento: sin GSAP o con `prefers-reduced-motion` la regla de abajo la
+   borra del documento, así que la página no puede quedarse tapada. Además,
+   main.js tiene una red de seguridad por tiempo que la retira pase lo que pase.
+   ========================================================================== */
+.cortina{position:fixed;inset:0;z-index:400;overflow:hidden;}
+.cortina-centro{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;}
+.cortina.esta-fuera{display:none;}
+html:not(.has-motion) .cortina{display:none;}
+@media (prefers-reduced-motion:reduce){.cortina{display:none;}}
+
+/* El gesto de la empresa de alarmas: la ventana de entrada. La argolla se
+   dibuja, la señal sale en ondas, el reloj cuenta hacia atrás y, al llegar a
+   cero sin incidencia, la hoja se levanta con el canto curvado. */
+.cortina-hoja{position:absolute;inset:0;background:var(--panel);
+  border-radius:0 0 52px 52px;will-change:transform;}
+.cortina-aldraba{width:clamp(88px,20vw,124px);height:auto;color:var(--azul-claro);}
+.cortina-argolla{stroke-dasharray:1;stroke-dashoffset:1;}
+.cortina-reloj{font-family:var(--display);font-weight:700;
+  font-size:clamp(2rem,8vw,3rem);line-height:1;color:var(--azul-claro);margin:0;
+  font-variant-numeric:tabular-nums;}
+.cortina-marca{font-family:var(--mono);font-size:.74rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--humo);margin:0;opacity:0;}

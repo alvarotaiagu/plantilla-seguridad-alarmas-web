@@ -104,6 +104,24 @@ la secuencia deja de anclarse y vuelve a ser una lista con scroll horizontal que
 se recorre con el dedo o con el teclado, los ocho pasos se leen igual, y los
 contadores muestran su cifra final.
 
+
+---
+
+## La cortina de entrada
+
+Obligatoria en toda la biblioteca, y **el gesto sale del concepto de esta
+plantilla**, no es la misma cortina repintada: aquí la argolla se dibuja, la señal sale en ondas y **el reloj cuenta la ventana de entrada** de 00:03 a 00:00; al llegar a cero sin incidencia pone «DESARMADO» y la hoja se levanta con el canto curvado.
+
+La mecánica es la de siempre: línea de tiempo encadenada, `expo.inOut`, borde
+curvo y **entrega limpia al hero** —el revelado del titular arranca mientras la
+cortina todavía se está yendo, no después—.
+
+**Se retira siempre.** Sin GSAP y con `prefers-reduced-motion` la hoja de estilos
+ni la pinta (`html:not(.has-motion) .cortina{display:none}`), y con movimiento hay
+una red de seguridad por tiempo en `main.js` que la quita y lanza el arranque
+pase lo que pase, para que la página no pueda quedarse tapada si una animación se
+atasca o las tipografías no resuelven.
+
 ---
 
 ## Accesibilidad
